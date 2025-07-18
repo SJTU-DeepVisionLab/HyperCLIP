@@ -31,8 +31,10 @@ bash run_train_test.sh
 Thanks to the excellent works and their codebases of [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg). 
 
 # Citation
+
 Please consider citing our paper if the code is helpful in your research and development.
-```
+
+```bibtex
 @inproceedings{peng2025understanding,
   title={Understanding Fine-tuning CLIP for Open-vocabulary Semantic Segmentation in Hyperbolic Space},
   author={Peng, Zelin and Xu, Zhengqin and Zeng, Zhilin and Wen, Changsong and Huang, Yu and Yang, Menglin and Tang, Feilong and Shen, Wei},
