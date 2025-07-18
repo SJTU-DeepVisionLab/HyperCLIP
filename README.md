@@ -1,7 +1,7 @@
 # Understanding Fine-tuning CLIP for Open-vocabulary Semantic Segmentation in Hyperbolic Space （CVPR2025）
 
 <p align="center">
-  <img src="framework.jpg" alt="Framework" width="600"/>
+  <img src="framework.jpg" alt="Framework" width="700"/>
 </p>
 
 ## 🔍 Overview
@@ -22,7 +22,7 @@ The figure below illustrates how CLIP embeddings evolve during HyperCLIP fine-tu
 - Image-level semantics (large radius) → pixel-level semantics (smaller radius).
 
 <p align="center">
-  <img src="hyper_radius_alignment.png" alt="Hyperbolic Radius Alignment" width="600"/>
+  <img src="hyper_radius_alignment.png" alt="Hyperbolic Radius Alignment" width="350"/>
 </p>
 
 
