@@ -1,4 +1,4 @@
-# Understanding Fine-tuning CLIP for Open-vocabulary Semantic Segmentation in Hyperbolic Space
+# Understanding Fine-tuning CLIP for Open-vocabulary Semantic Segmentation in Hyperbolic Space （CVPR2025）
 
 <p align="center">
   <img src="framework.jpg" alt="Framework" width="600"/>
