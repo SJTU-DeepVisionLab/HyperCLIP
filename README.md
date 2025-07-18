@@ -26,6 +26,7 @@ You can launch the entire training and evaluation pipeline using:
 ```bash
 bash run_train_test.sh
 
+```
 
 # Acknowledgement
 Thanks to the excellent works and their codebases of [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg). 
