@@ -26,14 +26,14 @@ The figure below illustrates how CLIP embeddings evolve during HyperCLIP fine-tu
 </p>
 
 
-# Installation and Data Preparation
+### Installation and Data Preparation
 
 Please refer to the [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg) repository for guidance on:
 
 - Environment setup (Python version, dependencies, etc.)
 - Dataset preparation (e.g., COCO, ADE20K, Pascal VOC)
 
-# Training and Evaluation
+### Training and Evaluation
 
 You can launch the entire training and evaluation pipeline using:
 
@@ -42,10 +42,10 @@ bash run_train_test.sh
 
 ```
 
-# Acknowledgement
+### Acknowledgement
 Thanks to the excellent works and their codebases of [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg). 
 
-# Citation
+### Citation
 
 Please consider citing our paper if the code is helpful in your research and development.
 
