@@ -22,7 +22,7 @@ The figure below illustrates how CLIP embeddings evolve during HyperCLIP fine-tu
 - Image-level semantics (large radius) → pixel-level semantics (smaller radius).
 
 <p align="center">
-  <img src="figs/hyper_radius_alignment.png" alt="Hyperbolic Radius Alignment" width="600"/>
+  <img src="hyper_radius_alignment.png" alt="Hyperbolic Radius Alignment" width="600"/>
 </p>
 
 
