@@ -6,23 +6,20 @@
 
 ## 🔍 Overview
 
-**HyperCLIP** is a lightweight and effective fine-tuning framework built upon CLIP for **open-vocabulary semantic segmentation**. Motivated by the observation that segmentation requires alignment at **pixel-level hierarchical granularity**, this work explores fine-tuning CLIP in **hyperbolic space**, which naturally encodes hierarchical structures.
+**HyperCLIP** is a lightweight and effective fine-tuning framework built upon CLIP for **open-vocabulary semantic segmentation**. Motivated by the observation that segmentation requires alignment at **pixel-level hierarchical granularity**, this work explores fine-tuning CLIP in **hyperbolic space**, which shifts the hierarchical granularity of CLIP's embedding from image-level to pixel-level, thereby equipping it with segmentation capability.
 
 ### Key Findings
-- **Radius contraction under joint fine-tuning:** The hyperbolic radius of CLIP's text embeddings **decreases**, enabling tighter alignment with pixel-level visual semantics.
-- **Radius-aware scaling module:** HyperCLIP explicitly introduces **scaling-based radius adjustment** for text embeddings to better align vision and language representations in hyperbolic space.
+- **hyperbolic radius changing via fine-tuning:** The hyperbolic radius of CLIP's text embeddings **decreases**, enabling tighter alignment with pixel-level visual semantics.
+- **hyperbolic radius adjustment** HyperCLIP explicitly introduces **hyperbolic radius adjustment** for CLIP's embeddings to better align vision and language representations in hyperbolic space.
 - **Parameter efficiency:** Only **~4%** of CLIP’s parameters are fine-tuned, yet HyperCLIP attains **state-of-the-art performance** across **three open-vocabulary segmentation benchmarks**.
-- **Characteristic hyperbolic level:** After fine-tuning, text embeddings converge to a **stable hyperbolic radius** across datasets, suggesting that segmentation tasks correspond to a **characteristic hierarchy level** in hyperbolic geometry.
+- **Characteristic hyperbolic level:** After fine-tuning, text embeddings converge to a **stable hyperbolic radius** across different datasets, suggesting that segmentation tasks correspond to a **characteristic hierarchy level** in hyperbolic geometry.
 
----
 
 ## 📊 Visualizing Hyperbolic Radius Alignment
 
 The figure below illustrates how CLIP embeddings evolve during HyperCLIP fine-tuning:
 
 - Image-level semantics (large radius) → pixel-level semantics (smaller radius).
-- Text embeddings contract in hyperbolic norm to meet the finer granularity demanded by dense prediction.
-- Post-adaptation radii cluster around a task-specific band (“characteristic level”).
 
 <p align="center">
   <img src="figs/hyper_radius_alignment.png" alt="HyperCLIP: hyperbolic radius contraction and hierarchical alignment" width="600"/>
