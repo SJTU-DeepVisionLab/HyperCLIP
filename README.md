@@ -26,6 +26,7 @@ The figure below illustrates how CLIP embeddings evolve during HyperCLIP fine-tu
 </p>
 
 
+
 ### Installation and Data Preparation
 
 Please refer to the [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg) repository for guidance on:
