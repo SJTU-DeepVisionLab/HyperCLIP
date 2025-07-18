@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 TORCH_DISTRIBUTED_DEBUG=DETAIL sh run.sh configs/vitb_384_hyperbolic.yaml 4 output

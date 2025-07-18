@@ -1,0 +1,191 @@
+[07/18 06:26:17] detectron2 INFO: Rank of current process: 3. World size: 4
+[07/18 06:26:18] detectron2 INFO: Environment info:
+-------------------------------  --------------------------------------------------------------------------------------------------------------------------
+sys.platform                     linux
+Python                           3.8.19 (default, Mar 20 2024, 19:58:24) [GCC 11.2.0]
+numpy                            1.22.4
+detectron2                       0.6 @/data_hdd/users/pengzelin/CAT-Seg_CVPR_to_8/detectron2/detectron2
+Compiler                         GCC 11.4
+CUDA compiler                    CUDA 11.8
+detectron2 arch flags            /data_hdd/users/pengzelin/CAT-Seg_CVPR_to_8/detectron2/detectron2/_C.cpython-38-x86_64-linux-gnu.so; cannot find cuobjdump
+DETECTRON2_ENV_MODULE            <not set>
+PyTorch                          1.13.1+cu117 @/home/pengzelin/.conda/envs/pzl/lib/python3.8/site-packages/torch
+PyTorch debug build              False
+torch._C._GLIBCXX_USE_CXX11_ABI  False
+GPU available                    Yes
+GPU 0,1,2,3                      NVIDIA GeForce RTX 3090 (arch=8.6)
+Driver version                   550.67
+CUDA_HOME                        /usr/local/cuda-11.8/bin
+Pillow                           8.2.0
+torchvision                      0.14.1+cu117 @/home/pengzelin/.conda/envs/pzl/lib/python3.8/site-packages/torchvision
+torchvision arch flags           /home/pengzelin/.conda/envs/pzl/lib/python3.8/site-packages/torchvision/_C.so; cannot find cuobjdump
+fvcore                           0.1.5.post20221221
+iopath                           0.1.9
+cv2                              4.5.1
+-------------------------------  --------------------------------------------------------------------------------------------------------------------------
+PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.6.0 (Git Hash 52b5f107dd9cf10910aaa19cb47f3abf9b349815)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.7
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.5
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.7, CUDNN_VERSION=8.5.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -fabi-version=11 -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wunused-local-typedefs -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.13.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+[07/18 06:26:18] detectron2 INFO: Command line arguments: Namespace(config_file='configs/vitb_384_hyperbolic.yaml', dist_url='auto', eval_only=True, machine_rank=0, num_gpus=4, num_machines=1, opts=['OUTPUT_DIR', 'output/eval', 'MODEL.SEM_SEG_HEAD.TEST_CLASS_JSON', 'datasets/ade150.json', 'DATASETS.TEST', '("ade20k_150_test_sem_seg",)', 'TEST.SLIDING_WINDOW', 'True', 'MODEL.SEM_SEG_HEAD.POOLING_SIZES', '[1,1]', 'MODEL.WEIGHTS', 'output/model_final.pth'], resume=False)
+[07/18 06:26:18] detectron2 INFO: Contents of args.config_file=configs/vitb_384_hyperbolic.yaml:
+_BASE_: config.yaml
+MODEL:
+  META_ARCHITECTURE: "CATSeg"
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.120, 57.375]
+  SEM_SEG_HEAD:
+    NAME: "CATSegHead"
+    IN_FEATURES: ["res2", "res3", "res4"]
+    IGNORE_VALUE: 255
+    NUM_CLASSES: 171
+    TRAIN_CLASS_JSON: "datasets/coco.json"
+    TEST_CLASS_JSON: "datasets/coco.json"
+    CLIP_PRETRAINED: "ViT-B/16"
+    PROMPT_DEPTH: 0
+    PROMPT_LENGTH: 0
+    TEXT_GUIDANCE_DIM: 512
+    TEXT_GUIDANCE_PROJ_DIM: 128
+    APPEARANCE_GUIDANCE_DIM: 512
+    APPEARANCE_GUIDANCE_PROJ_DIM: 128
+    DECODER_DIMS: [64, 32]
+    DECODER_GUIDANCE_DIMS: [256, 128]
+    DECODER_GUIDANCE_PROJ_DIMS: [32, 16]
+    NUM_LAYERS: 2
+    NUM_HEADS: 4
+    HIDDEN_DIMS: 128
+    POOLING_SIZES: [2, 2]
+    FEATURE_RESOLUTION: [24, 24]
+    WINDOW_SIZES: 12
+    ATTENTION_TYPE: "linear"
+    CLIP_FINETUNE: "oft_both"
+  PROMPT_ENSEMBLE_TYPE: "single"
+INPUT:
+  MIN_SIZE_TRAIN: (384, )
+  MIN_SIZE_TRAIN_SAMPLING: "choice"
+  MIN_SIZE_TEST: 640
+  CROP:
+    ENABLED: True
+    TYPE: "absolute"
+    SIZE: (384, 384)
+  SIZE_DIVISIBILITY: 384 
+  FORMAT: "RGB"
+  DATASET_MAPPER_NAME: "mask_former_semantic"
+SOLVER:
+  IMS_PER_BATCH: 4 
+  LR_SCHEDULER_NAME: WarmupCosineLR
+  BASE_LR: 0.0002
+  MAX_ITER: 80000
+  BACKBONE_MULTIPLIER: 0.0
+  CLIP_MULTIPLIER: 0.075
+TEST:
+  EVAL_PERIOD: 80000
+  
+[07/18 06:26:18] detectron2.utils.env INFO: Using a generated random seed 21396637
+[07/18 06:26:30] detectron2 INFO: Rank of current process: 3. World size: 4
+[07/18 06:26:30] detectron2 INFO: Environment info:
+-------------------------------  --------------------------------------------------------------------------------------------------------------------------
+sys.platform                     linux
+Python                           3.8.19 (default, Mar 20 2024, 19:58:24) [GCC 11.2.0]
+numpy                            1.22.4
+detectron2                       0.6 @/data_hdd/users/pengzelin/CAT-Seg_CVPR_to_8/detectron2/detectron2
+Compiler                         GCC 11.4
+CUDA compiler                    CUDA 11.8
+detectron2 arch flags            /data_hdd/users/pengzelin/CAT-Seg_CVPR_to_8/detectron2/detectron2/_C.cpython-38-x86_64-linux-gnu.so; cannot find cuobjdump
+DETECTRON2_ENV_MODULE            <not set>
+PyTorch                          1.13.1+cu117 @/home/pengzelin/.conda/envs/pzl/lib/python3.8/site-packages/torch
+PyTorch debug build              False
+torch._C._GLIBCXX_USE_CXX11_ABI  False
+GPU available                    Yes
+GPU 0,1,2,3                      NVIDIA GeForce RTX 3090 (arch=8.6)
+Driver version                   550.67
+CUDA_HOME                        /usr/local/cuda-11.8/bin
+Pillow                           8.2.0
+torchvision                      0.14.1+cu117 @/home/pengzelin/.conda/envs/pzl/lib/python3.8/site-packages/torchvision
+torchvision arch flags           /home/pengzelin/.conda/envs/pzl/lib/python3.8/site-packages/torchvision/_C.so; cannot find cuobjdump
+fvcore                           0.1.5.post20221221
+iopath                           0.1.9
+cv2                              4.5.1
+-------------------------------  --------------------------------------------------------------------------------------------------------------------------
+PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.6.0 (Git Hash 52b5f107dd9cf10910aaa19cb47f3abf9b349815)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.7
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.5
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.7, CUDNN_VERSION=8.5.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -fabi-version=11 -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wunused-local-typedefs -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.13.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+[07/18 06:26:30] detectron2 INFO: Command line arguments: Namespace(config_file='configs/vitb_384_hyperbolic.yaml', dist_url='auto', eval_only=True, machine_rank=0, num_gpus=4, num_machines=1, opts=['OUTPUT_DIR', 'output/eval', 'MODEL.SEM_SEG_HEAD.TEST_CLASS_JSON', 'datasets/ade847.json', 'DATASETS.TEST', '("ade20k_full_sem_seg_freq_val_all",)', 'TEST.SLIDING_WINDOW', 'True', 'MODEL.SEM_SEG_HEAD.POOLING_SIZES', '[1,1]', 'MODEL.WEIGHTS', 'output/model_final.pth'], resume=False)
+[07/18 06:26:30] detectron2 INFO: Contents of args.config_file=configs/vitb_384_hyperbolic.yaml:
+_BASE_: config.yaml
+MODEL:
+  META_ARCHITECTURE: "CATSeg"
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.120, 57.375]
+  SEM_SEG_HEAD:
+    NAME: "CATSegHead"
+    IN_FEATURES: ["res2", "res3", "res4"]
+    IGNORE_VALUE: 255
+    NUM_CLASSES: 171
+    TRAIN_CLASS_JSON: "datasets/coco.json"
+    TEST_CLASS_JSON: "datasets/coco.json"
+    CLIP_PRETRAINED: "ViT-B/16"
+    PROMPT_DEPTH: 0
+    PROMPT_LENGTH: 0
+    TEXT_GUIDANCE_DIM: 512
+    TEXT_GUIDANCE_PROJ_DIM: 128
+    APPEARANCE_GUIDANCE_DIM: 512
+    APPEARANCE_GUIDANCE_PROJ_DIM: 128
+    DECODER_DIMS: [64, 32]
+    DECODER_GUIDANCE_DIMS: [256, 128]
+    DECODER_GUIDANCE_PROJ_DIMS: [32, 16]
+    NUM_LAYERS: 2
+    NUM_HEADS: 4
+    HIDDEN_DIMS: 128
+    POOLING_SIZES: [2, 2]
+    FEATURE_RESOLUTION: [24, 24]
+    WINDOW_SIZES: 12
+    ATTENTION_TYPE: "linear"
+    CLIP_FINETUNE: "oft_both"
+  PROMPT_ENSEMBLE_TYPE: "single"
+INPUT:
+  MIN_SIZE_TRAIN: (384, )
+  MIN_SIZE_TRAIN_SAMPLING: "choice"
+  MIN_SIZE_TEST: 640
+  CROP:
+    ENABLED: True
+    TYPE: "absolute"
+    SIZE: (384, 384)
+  SIZE_DIVISIBILITY: 384 
+  FORMAT: "RGB"
+  DATASET_MAPPER_NAME: "mask_former_semantic"
+SOLVER:
+  IMS_PER_BATCH: 4 
+  LR_SCHEDULER_NAME: WarmupCosineLR
+  BASE_LR: 0.0002
+  MAX_ITER: 80000
+  BACKBONE_MULTIPLIER: 0.0
+  CLIP_MULTIPLIER: 0.075
+TEST:
+  EVAL_PERIOD: 80000
+  
+[07/18 06:26:30] detectron2.utils.env INFO: Using a generated random seed 33494857
+[07/18 06:26:41] detectron2 INFO: Rank of current process: 3. World size: 4
